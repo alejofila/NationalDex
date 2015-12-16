@@ -4,4 +4,6 @@
     <string name="title_tab_general">General</string>
     <string name="title_tab_moves">Moves</string>
     <string name="title_tab_stats">Stats</string>
+    <string name="send_mail">Send</string>
+    <string name="no_email_client">You dont have an email client installed</string>
 </resources>

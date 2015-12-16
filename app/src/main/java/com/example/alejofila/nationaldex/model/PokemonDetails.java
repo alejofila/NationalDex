@@ -134,4 +134,15 @@ public class PokemonDetails {
     public void setNational_id(int national_id) {
         this.national_id = national_id;
     }
+
+    @Override
+    public String toString() {
+        return "******STATS****** : \n"
+                +"HP: "+hp+"\n"
+                +"ATTACK: "+attack+"\n"
+                +"DEFENSE: "+defense+"\n"
+                +"SPEED: "+speed+"\n"
+                +"WEIGHT: "+weight+"\n"
+                +"HEIGHT: "+height+"\n";
+    }
 }

@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
         setContentView(R.layout.activity_main);
         mHandler = new Handler();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        deleteDatabase(DBHelper.DATABASE_NAME);
         setSupportActionBar(toolbar);
         manager = new CrudManager(getContentResolver());
         if (savedInstanceState == null) {
@@ -45,21 +44,6 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
         fm.beginTransaction().replace(R.id.fragment_container, new ListPokedexFragment()).commit();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
     @Override
     public void onPokemonDetails(int national_id,final String pokemonName) {
         if (!manager.hasPokemonInfo(national_id)) {
@@ -132,8 +116,9 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
     private void showDetailsFragmentContainer(int national_id, String pokeName){
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.fragment_container,
-                PokemonDetailsContainerFragment.getInstance(national_id,pokeName)).
-                addToBackStack(null).commit();
+                PokemonDetailsContainerFragment.getInstance(national_id,pokeName))
+        .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,android.R.anim.fade_in,android.R.anim.fade_out)
+        .addToBackStack(null).commit();
     }
 
 }
