@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NationalDex</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_tab_general">General</string>
+    <string name="title_tab_moves">Moves</string>
+    <string name="title_tab_stats">Stats</string>
+</resources>
